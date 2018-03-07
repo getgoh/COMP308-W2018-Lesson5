@@ -25,4 +25,28 @@ router.get('/', (req, res, next) => {
     
 });
 
+router.get('/add', (req, res, next) => {
+    res.render('games/details', {
+        title: "Add a new Game",
+        games: ''
+    });
+});
+
+router.post('/add', (req, res, next) => {
+    let newGame = game({
+        "Name": req.body.name,
+        "Cost": req.body.cost,
+        "Rating": req.body.rating
+    });
+
+    game.create(newGame, (err, game) => {
+        if (err)
+        {
+            console.log(err);
+            return next(err);
+        }
+        res.redirect('/games');
+    });
+});
+
 module.exports = router;

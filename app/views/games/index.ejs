@@ -1,49 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
+<% include ../partials/header.ejs %>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>
-    <%= title %>
-  </title>
-  <!-- CSS Section -->
-  <link rel="stylesheet" href="./bootstrap/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="./font-awesome/css/font-awesome.min.css">
-  <link rel='stylesheet' href='./Content/app.css' />
-</head>
-
-<body>
-
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-md-4">
-          <table class="table table-dark">
-            <tr>
-              <th class="class-center">Name</th>
-              <th class="class-center">Rating</th>
-              <th class="class-center">Cost</th>
-            </tr>
-            <% games.forEach(function(game) { %>
-            <tr>
-              <td class="class-center"><%= game.Name %></td>
-              <td class="class-center"><%= game.Rating %></td>
-              <td class="class-center">$<%= game.Cost %></td>
-            </tr>
-            <% }); %>
-          </table>
-        </div>
-      </div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-4">
+      <table class="table table-dark">
+        <tr>
+          <th class="class-center">Name</th>
+          <th class="class-center">Rating</th>
+          <th class="class-center">Cost</th>
+        </tr>
+        <% games.forEach(function(game) { %>
+        <tr>
+          <td class="class-center"><%= game.Name %></td>
+          <td class="class-center"><%= game.Rating %></td>
+          <td class="class-center">$<%= game.Cost %></td>
+        </tr>
+        <% }); %>
+      </table>
     </div>
+  </div>
+</div>
 
-    
-
-
-
-    <script src="./jquery/dist/jquery.min.js"></script>
-	<script src="./boostrap/dist/js/boostrap.min.js"></script>
-
-    <script src="./Scripts/core/app.js"></script>
-</body>
-</html>
+<% include ../partials/footer.ejs %>
